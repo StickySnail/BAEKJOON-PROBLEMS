@@ -12,9 +12,6 @@ public class Main {
 
 		final int N = 3;
 		int result = 1;
-		int divider = 10;
-		int count = 0;
-		int number;
 		Integer[] arr = new Integer[N];
 		int[] arrForCount = new int[10];
 
@@ -27,11 +24,9 @@ public class Main {
 			result *= i;
 		}
 
-		while (true) {
-			number = result % divider;
-			result = result/divider;
-			arrForCount[number]++;
-			if(result <1) break;
+		while (result!=0) {
+			arrForCount[result%10]++;
+			result /= 10;
 		}
 
 		for (int i : arrForCount) {
