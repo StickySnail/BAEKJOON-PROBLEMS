@@ -36,6 +36,38 @@ public class Main {
 
 }
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        
+        StringTokenizer str;
+
+        String[] output = new String[T];
+
+        for (int i = 0; i < T; i++) {
+            str = new StringTokenizer(br.readLine());
+            int R = Integer.parseInt(str.nextToken());
+            String S = str.nextToken();
+            output[i] = "";
+            for (int r = 0; r < R * S.length(); r++) {
+                output[i] += S.charAt(r/R);
+            }
+        }
+        
+        for(String s : output) System.out.println(s);
+
+    }
+
+}
+
 
 // import java.io.BufferedReader;
 // import java.io.InputStreamReader;
