@@ -1,0 +1,46 @@
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int X = Integer.parseInt(br.readLine());
+        int i = 1, k = 1;
+        int b = 0;
+        int count = 1;
+
+        loop: while (true) {
+            if (count == X) {
+                break loop;
+            }
+
+            if (i == 1) {
+                k++;
+            } else if (k == 1) {
+                i++;
+            }
+            count++;
+            if (count == X) {
+                break loop;
+            }
+            b++;
+            for (int c = 0; c < b; c++) {
+                if (b % 2 != 0) {
+                    k--;
+                    i++;
+                    count++;
+                } else if (b % 2 == 0) {
+                    k++;
+                    i--;
+                    count++;
+                }
+                if (count == X) {
+                    break loop;
+                }
+            }
+        }
+        System.out.println(i + "/" + k);
+    }
+
+}
